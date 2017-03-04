@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "rollup -c",
+    "build": "rollup -c && uglify -c -m",
     "dev": "rollup -c --watch",
     "reload": "livereload 'public/' -d",
     "watch": "npm-run-all --parallel reload dev",
@@ -26,6 +26,7 @@
     "npm-run-all": "^4.0.2",
     "postcss-cssnext": "^2.9.0",
     "postcss-nested": "^1.0.0",
+    "postcss-partial-import": "^3.1.1",
     "postcss-simple-vars": "^3.0.0",
     "rollup": "^0.41.4",
     "rollup-plugin-babel": "^2.7.1",
