@@ -4,6 +4,9 @@
         "commonjs": true,
         "es6": true
     },
+    "globals": {
+      "ENV": true
+    },
     "extends": "eslint:recommended",
     "parserOptions": {
         "ecmaFeatures": {
@@ -18,7 +21,7 @@
     "rules": {
         "indent": [
             "error",
-            4
+            2
         ],
         "linebreak-style": [
             "error",
