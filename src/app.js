@@ -19,8 +19,12 @@ if (ENV !== 'production') {
 
 const circle = d3.selectAll('circle');
 
+circle.data([32, 57, 112]);
+
 circle.style('fill', 'steelblue')
-  .attr('r', 30)
-  .attr('cx', () => {
-    return Math.random() * 720;
+  .attr('r', (d) => {
+    return Math.sqrt(d);
+  })
+  .attr('cx', (d, i) => {
+    return i * 100 + 30;
   });
