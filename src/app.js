@@ -56,6 +56,12 @@ const lineData = [
     x2: rightInnerArcIntercept + innerRadius,
     y2: arcYCoord2,
   },
+  {
+    x1: rightInnerArcIntercept + innerRadius,
+    y1: arcYCoord1 - outerRadius,
+    x2: rightInnerArcIntercept + innerRadius,
+    y2: arcYCoord2,
+  },
 ];
 
 // Text data
@@ -75,12 +81,12 @@ const textData = [
 // Circle data
 const circleData = [
   {
-    cx: rightInnerArcIntercept + innerRadius + 3,
+    cx: rightInnerArcIntercept + innerRadius,
     cy: arcYCoord1,
     r: innerRadius / 5,
   },
   {
-    cx: rightInnerArcIntercept + innerRadius + 3,
+    cx: rightInnerArcIntercept + innerRadius,
     cy: arcYCoord2,
     r: innerRadius / 5,
   }
