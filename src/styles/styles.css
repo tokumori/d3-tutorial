@@ -15,4 +15,10 @@ svg {
     stroke: black;
     stroke-width: 4;
   }
+
+  .rect {
+    stroke: black;
+    stroke-width: 4;
+    fill: none;
+  }
 }

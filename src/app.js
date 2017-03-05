@@ -21,6 +21,7 @@ if (ENV !== 'production') {
 const width = 960;
 const height = 500;
 const innerRadius = 50;
+const outerRadius = innerRadius + 5;
 const innerArcIntercept = (width / 2) - innerRadius;
 const arcData = [150, 250];
 const lineData = [
@@ -51,7 +52,7 @@ const textData = [
 ];
 const arc = d3.arc()
   .innerRadius(innerRadius)
-  .outerRadius(55)
+  .outerRadius(outerRadius)
   .startAngle(-Math.PI/2)
   .endAngle(Math.PI/2);
 
@@ -95,3 +96,10 @@ svg.selectAll('text')
     .text((d) => {
       return d.text;
     });
+
+svg.append('rect')
+    .attr('class', 'rect')
+    .attr('width', innerRadius * 5)
+    .attr('height', height / 2)
+    .attr('x', (width / 2) - (outerRadius * 2))
+    .attr('y', 50);
