@@ -73,14 +73,44 @@ const lineData = [
 // Text data
 const textData = [
   {
-    x: lineData[0].x1 + 100,
-    y: arcYCoord1 - 20,
-    text: 'banana',
+    x: 20,
+    y: 50,
+    text: 'OUTPUT',
+  },
+  {
+    x: lineData[0].x1 - 60,
+    y: lineData[0].y1 + 3,
+    text: 'RateX',
+  },
+  {
+    x: lineData[1].x1 - 60,
+    y: lineData[1].y1 + 3,
+    text: 'RateY',
   },
   {
     x: lineData[0].x1 + 100,
-    y: arcYCoord2 - 20,
-    text: 'banana',
+    y: lineData[0].y1 - 10,
+    text: 'PipeSizeX',
+  },
+  {
+    x: lineData[1].x1 + 100,
+    y: lineData[1].y1 - 10,
+    text: 'PipeSizeY',
+  },
+  {
+    x: (width/2) - 7,
+    y: arcYCoord1,
+    text: '30',
+  },
+  {
+    x: (width/2) - 7,
+    y: arcYCoord2,
+    text: '30',
+  },
+  {
+    x: lineData[lineData.length - 1].x1 + 140,
+    y: lineData[lineData.length - 1].y1 - 10,
+    text: 'PipeSizeZ',
   },
 ];
 
