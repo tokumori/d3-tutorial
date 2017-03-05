@@ -17,51 +17,63 @@ if (ENV !== 'production') {
   debug.disable();
 }
 
+// SVG Canvas
 const width = 960;
 const height = 500;
+
+// Arc data
 const innerRadius = 50;
 const outerRadius = innerRadius + 5;
 const innerArcIntercept = (width / 2) - innerRadius;
-const arcData = [150, 250];
+const arcYCoord1 = 150;
+const arcYCoord2 = 250;
+const arcYCoordData = [arcYCoord1, arcYCoord2];
+
+// Line data
 const lineData = [
   {
-    x1: 100,
-    y1: arcData[0],
+    x1: innerArcIntercept - 300,
+    y1: arcYCoord1,
     x2: innerArcIntercept,
-    y2: arcData[0],
+    y2: arcYCoord1,
   },
   {
-    x1: 100,
-    y1: arcData[1],
+    x1: innerArcIntercept - 300,
+    y1: arcYCoord2,
     x2: innerArcIntercept,
-    y2: arcData[1],
+    y2: arcYCoord2,
   },
 ];
+
+// Text data
 const textData = [
   {
-    x: 200,
-    y: 130,
+    x: lineData[0].x1 + 100,
+    y: arcYCoord1 - 20,
     text: 'banana',
   },
   {
-    x: 200,
-    y: 230,
+    x: lineData[0].x1 + 100,
+    y: arcYCoord2 - 20,
     text: 'banana',
   },
 ];
+
+// SVG creation
+const svg = d3.select('body')
+  .append('svg')
+    .attr('width', width)
+    .attr('height', height);
+
+// Arc creation
 const arc = d3.arc()
   .innerRadius(innerRadius)
   .outerRadius(outerRadius)
   .startAngle(-Math.PI/2)
   .endAngle(Math.PI/2);
 
-const svg = d3.select('body')
-  .append('svg')
-    .attr('width', width)
-    .attr('height', height);
-
 const arcs = svg.selectAll('g')
-    .data(arcData)
+    .data(arcYCoordData)
   .enter().append('g')
     .attr('transform', (d) => {
       return `translate(${width/2}, ${d})`;
@@ -71,6 +83,7 @@ arcs.append('path')
     .attr('class', 'arc')
     .attr('d', arc);
 
+// Line creation
 svg.selectAll('line')
     .data(lineData)
   .enter().append('line')
@@ -82,6 +95,7 @@ svg.selectAll('line')
     .attr('x2', (d) => {return d.x2;})
     .attr('y2', (d) => {return d.y2;});
 
+// Text creation
 svg.selectAll('text')
     .data(textData)
   .enter().append('text')
@@ -96,9 +110,10 @@ svg.selectAll('text')
       return d.text;
     });
 
+// Rectangle creation
 svg.append('rect')
     .attr('class', 'rect')
     .attr('width', innerRadius * 5)
-    .attr('height', height / 2)
+    .attr('height', height * (2/3))
     .attr('x', (width / 2) - (outerRadius * 2))
-    .attr('y', 50);
+    .attr('y', arcYCoord1 - 100);
