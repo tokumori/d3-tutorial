@@ -7,8 +7,3 @@ $color-gradient-start: #efefff;
 $color-lightest: #fff;
 $font-family: sans-serif;
 
-svg {
-  circle {
-    fill: steelblue;
-  }
-}
