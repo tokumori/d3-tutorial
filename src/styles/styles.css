@@ -1,0 +1,17 @@
+@import 'partials/reset';
+@import 'partials/clearfix';
+/* Variables */
+$color-heading: #111;
+$color-text: #444;
+$color-gradient-start: #efefff;
+$color-lightest: #fff;
+$font-family: sans-serif;
+
+.chart div {
+  font: 10px sans-serif;
+  background-color: steelblue;
+  text-align: right;
+  padding: 3px;
+  margin: 1px;
+  color: white;
+}

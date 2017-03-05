@@ -1,3 +1,4 @@
+import './styles/styles.css';
 import * as d3 from './d3modules.js';
 
 var data = [4, 8, 15, 16, 23, 42];
