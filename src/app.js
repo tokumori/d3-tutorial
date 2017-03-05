@@ -20,9 +20,9 @@ if (ENV !== 'production') {
 // const margin = {top: 120, right: 120, bottom: 120, left: 120};
 const width = 960;
 const height = 500;
-const arcData = [150, 250];
 const innerRadius = 50;
 const innerArcIntercept = (width / 2) - innerRadius;
+const arcData = [150, 250];
 const lineData = [
   {
     x1: 100,
@@ -35,6 +35,18 @@ const lineData = [
     y1: 250,
     x2: innerArcIntercept,
     y2: 250,
+  },
+];
+const textData = [
+  {
+    x: 200,
+    y: 130,
+    text: 'banana',
+  },
+  {
+    x: 200,
+    y: 230,
+    text: 'banana',
   },
 ];
 const arc = d3.arc()
@@ -69,3 +81,17 @@ svg.selectAll('line')
     .attr('y1', (d) => {return d.y1;})
     .attr('x2', (d) => {return d.x2;})
     .attr('y2', (d) => {return d.y2;});
+
+svg.selectAll('text')
+    .data(textData)
+  .enter().append('text')
+    .attr('class', 'text')
+    .attr('x', (d) => {
+      return d.x;
+    })
+    .attr('y', (d) => {
+      return d.y;
+    })
+    .text((d) => {
+      return d.text;
+    });
