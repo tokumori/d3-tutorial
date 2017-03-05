@@ -72,6 +72,20 @@ const textData = [
   },
 ];
 
+// Circle data
+const circleData = [
+  {
+    cx: rightInnerArcIntercept + innerRadius + 3,
+    cy: arcYCoord1,
+    r: innerRadius / 5,
+  },
+  {
+    cx: rightInnerArcIntercept + innerRadius + 3,
+    cy: arcYCoord2,
+    r: innerRadius / 5,
+  }
+];
+
 // SVG creation
 const svg = d3.select('body')
   .append('svg')
@@ -130,3 +144,17 @@ svg.append('rect')
     .attr('height', height * (2/3))
     .attr('x', (width / 2) - (innerRadius * 2))
     .attr('y', arcYCoord1 - 100);
+
+// Circle creation
+svg.selectAll('circle')
+    .data(circleData)
+  .enter().append('circle')
+    .attr('cx', (d) => {
+      return d.cx;
+    })
+    .attr('cy', (d) => {
+      return d.cy;
+    })
+    .attr('r', (d) => {
+      return d.r;
+    });
