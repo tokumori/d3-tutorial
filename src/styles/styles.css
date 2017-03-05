@@ -7,3 +7,12 @@ $color-gradient-start: #efefff;
 $color-lightest: #fff;
 $font-family: sans-serif;
 
+
+svg {
+  border: 3px solid black;
+
+  .line {
+    stroke: black;
+    stroke-width: 5;
+  }
+}

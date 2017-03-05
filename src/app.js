@@ -18,41 +18,53 @@ if (ENV !== 'production') {
 }
 
 // const margin = {top: 120, right: 120, bottom: 120, left: 120};
-const data = [100, 100];
 const width = 960;
 const height = 500;
-// const arcData = [
-//   {
-//     innerRadius: 100,
-//     outerRadius: 105,
-//     startAngle: -Math.PI/2,
-//     endAngle: Math.PI/2,
-//   },
-//   {
-//     innerRadius: 100,
-//     outerRadius: 105,
-//     startAngle: -Math.PI/2,
-//     endAngle: Math.PI/2,
-//   },
-// ]
+const arcData = [150, 250];
+const lineData = [
+  {
+    x1: 100,
+    y1: 150,
+    x2: 400,
+    y2: 150,
+  },
+  {
+    x1: 100,
+    y1: 250,
+    x2: 400,
+    y2: 250,
+  },
+];
 
 const svg = d3.select('body')
   .append('svg')
     .attr('width', width)
-    .attr('height', height)
-  .selectAll('g')
-    .data(data)
+    .attr('height', height);
+
+const arcs = svg.selectAll('g')
+    .data(arcData)
   .enter().append('g')
-    .attr('transform', (d, i) => {
-      return `translate(${d}, ${d * (i + 1)})`;
+    .attr('transform', (d) => {
+      return `translate(${width/2}, ${d})`;
     });
 
 const arc = d3.arc()
-  .innerRadius(100)
-  .outerRadius(105)
+  .innerRadius(50)
+  .outerRadius(55)
   .startAngle(-Math.PI/2)
   .endAngle(Math.PI/2);
 
-svg.append('path')
+arcs.append('path')
     .attr('class', 'arc')
     .attr('d', arc);
+
+svg.selectAll('line')
+    .data(lineData)
+  .enter().append('line')
+    .attr('class', 'line')
+    .attr('x1', (d) => {
+      return d.x1;
+    })
+    .attr('y1', (d) => {return d.y1;})
+    .attr('x2', (d) => {return d.x2;})
+    .attr('y2', (d) => {return d.y2;});
