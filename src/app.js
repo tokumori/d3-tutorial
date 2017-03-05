@@ -21,7 +21,8 @@ if (ENV !== 'production') {
 const width = 960;
 const height = 500;
 const arcData = [150, 250];
-const innerArcIntercept = (width / 2) - 50;
+const innerRadius = 50;
+const innerArcIntercept = (width / 2) - innerRadius;
 const lineData = [
   {
     x1: 100,
@@ -37,7 +38,7 @@ const lineData = [
   },
 ];
 const arc = d3.arc()
-  .innerRadius(50)
+  .innerRadius(innerRadius)
   .outerRadius(55)
   .startAngle(-Math.PI/2)
   .endAngle(Math.PI/2);
