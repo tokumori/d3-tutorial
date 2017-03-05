@@ -17,7 +17,6 @@ if (ENV !== 'production') {
   debug.disable();
 }
 
-// const margin = {top: 120, right: 120, bottom: 120, left: 120};
 const width = 960;
 const height = 500;
 const innerRadius = 50;
@@ -27,15 +26,15 @@ const arcData = [150, 250];
 const lineData = [
   {
     x1: 100,
-    y1: 150,
+    y1: arcData[0],
     x2: innerArcIntercept,
-    y2: 150,
+    y2: arcData[0],
   },
   {
     x1: 100,
-    y1: 250,
+    y1: arcData[1],
     x2: innerArcIntercept,
-    y2: 250,
+    y2: arcData[1],
   },
 ];
 const textData = [
