@@ -21,20 +21,26 @@ if (ENV !== 'production') {
 const width = 960;
 const height = 500;
 const arcData = [150, 250];
+const innerArcIntercept = (width / 2) - 50;
 const lineData = [
   {
     x1: 100,
     y1: 150,
-    x2: 400,
+    x2: innerArcIntercept,
     y2: 150,
   },
   {
     x1: 100,
     y1: 250,
-    x2: 400,
+    x2: innerArcIntercept,
     y2: 250,
   },
 ];
+const arc = d3.arc()
+  .innerRadius(50)
+  .outerRadius(55)
+  .startAngle(-Math.PI/2)
+  .endAngle(Math.PI/2);
 
 const svg = d3.select('body')
   .append('svg')
@@ -47,12 +53,6 @@ const arcs = svg.selectAll('g')
     .attr('transform', (d) => {
       return `translate(${width/2}, ${d})`;
     });
-
-const arc = d3.arc()
-  .innerRadius(50)
-  .outerRadius(55)
-  .startAngle(-Math.PI/2)
-  .endAngle(Math.PI/2);
 
 arcs.append('path')
     .attr('class', 'arc')
