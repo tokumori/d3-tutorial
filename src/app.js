@@ -58,9 +58,15 @@ const lineData = [
   },
   {
     x1: rightInnerArcIntercept + innerRadius,
-    y1: arcYCoord1 - outerRadius,
+    y1: arcYCoord2,
     x2: rightInnerArcIntercept + innerRadius,
-    y2: arcYCoord2,
+    y2: arcYCoord1 - outerRadius,
+  },
+  {
+    x1: rightInnerArcIntercept + innerRadius - 2,
+    y1: arcYCoord1 - outerRadius,
+    x2: rightInnerArcIntercept + innerRadius + 300,
+    y2: arcYCoord1 - outerRadius,
   },
 ];
 
