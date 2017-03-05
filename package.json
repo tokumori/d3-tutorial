@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "rollup -c && uglify -c -m",
+    "build": "rollup -c",
+    "build-d3": "rollup -c rollup.config.d3.js",
     "dev": "rollup -c --watch",
     "reload": "livereload 'public/' -d",
     "watch": "npm-run-all --parallel reload dev",
