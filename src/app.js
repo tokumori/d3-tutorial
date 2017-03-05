@@ -17,16 +17,35 @@ if (ENV !== 'production') {
   debug.disable();
 }
 
-const margin = {top: 120, right: 120, bottom: 120, left: 120};
+// const margin = {top: 120, right: 120, bottom: 120, left: 120};
+const data = [100, 100];
 const width = 960;
 const height = 500;
+// const arcData = [
+//   {
+//     innerRadius: 100,
+//     outerRadius: 105,
+//     startAngle: -Math.PI/2,
+//     endAngle: Math.PI/2,
+//   },
+//   {
+//     innerRadius: 100,
+//     outerRadius: 105,
+//     startAngle: -Math.PI/2,
+//     endAngle: Math.PI/2,
+//   },
+// ]
 
 const svg = d3.select('body')
   .append('svg')
     .attr('width', width)
     .attr('height', height)
-  .append('g')
-    .attr('transform', `translate(${margin.left}, ${margin.top})`);
+  .selectAll('g')
+    .data(data)
+  .enter().append('g')
+    .attr('transform', (d, i) => {
+      return `translate(${d}, ${d * (i + 1)})`;
+    });
 
 const arc = d3.arc()
   .innerRadius(100)
