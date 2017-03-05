@@ -24,23 +24,36 @@ const height = 500;
 // Arc data
 const innerRadius = 50;
 const outerRadius = innerRadius + 5;
-const innerArcIntercept = (width / 2) - innerRadius;
-const arcYCoord1 = 150;
-const arcYCoord2 = 250;
+const leftInnerArcIntercept = (width / 2) - innerRadius;
+const rightInnerArcIntercept = (width / 2) + innerRadius;
+const arcYCoord1 = 200;
+const arcYCoord2 = 300;
 const arcYCoordData = [arcYCoord1, arcYCoord2];
 
 // Line data
 const lineData = [
   {
-    x1: innerArcIntercept - 300,
+    x1: leftInnerArcIntercept - 300,
     y1: arcYCoord1,
-    x2: innerArcIntercept,
+    x2: leftInnerArcIntercept,
     y2: arcYCoord1,
   },
   {
-    x1: innerArcIntercept - 300,
+    x1: leftInnerArcIntercept - 300,
     y1: arcYCoord2,
-    x2: innerArcIntercept,
+    x2: leftInnerArcIntercept,
+    y2: arcYCoord2,
+  },
+  {
+    x1: rightInnerArcIntercept,
+    y1: arcYCoord1,
+    x2: rightInnerArcIntercept + innerRadius,
+    y2: arcYCoord1,
+  },
+  {
+    x1: rightInnerArcIntercept,
+    y1: arcYCoord2,
+    x2: rightInnerArcIntercept + innerRadius,
     y2: arcYCoord2,
   },
 ];
@@ -113,7 +126,7 @@ svg.selectAll('text')
 // Rectangle creation
 svg.append('rect')
     .attr('class', 'rect')
-    .attr('width', innerRadius * 5)
+    .attr('width', innerRadius * 5.5)
     .attr('height', height * (2/3))
-    .attr('x', (width / 2) - (outerRadius * 2))
+    .attr('x', (width / 2) - (innerRadius * 2))
     .attr('y', arcYCoord1 - 100);
