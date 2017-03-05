@@ -20,4 +20,7 @@ if (ENV !== 'production') {
 const circle = d3.selectAll('circle');
 
 circle.style('fill', 'steelblue')
-  .attr('r', 30);
+  .attr('r', 30)
+  .attr('cx', () => {
+    return Math.random() * 720;
+  });
