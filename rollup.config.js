@@ -1,5 +1,4 @@
 import babel from 'rollup-plugin-babel';
-import eslint from 'rollup-plugin-eslint';
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import replace from 'rollup-plugin-replace';
@@ -14,8 +13,11 @@ import partial from 'postcss-partial-import';
 export default {
   entry: 'src/app.js',
   dest: 'public/js/app.js',
-  format: 'iife',
+  format: 'umd',
   sourceMap: 'inline',
+  acorn: {
+    allowReserved: true,
+  },
   plugins: [
     postcss({
       plugins: [
@@ -33,11 +35,6 @@ export default {
       browser: true,
     }),
     commonjs(),
-    eslint({
-      exclude: [
-        'src/styles/**',
-      ]
-    }),
     babel({
       exclude: 'node_modules/**',
     }),
